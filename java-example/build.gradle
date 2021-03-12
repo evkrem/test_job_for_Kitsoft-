@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' версия '2.7'
+
+}
+
+group 'Kitsoft'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-7'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+}
+
+allure {
+    version = '2.10.0'
+    downloadLinkFormat = 'https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/%s/allure-commandline-%<s.zip'
+}
+
+test {
+    useJUnitPlatform()
+}
